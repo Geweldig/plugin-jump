@@ -8,8 +8,8 @@ function jump
   else
     if test -d $MARKPATH/$argv[1] -a -L $MARKPATH/$argv[1]
       cd (readlink $MARKPATH/$argv[1])
-      command rm $JUMPHISTPATH/last_used
-      command ln -s (readlink $MARKPATH/$argv[1]) $JUMPHISTPATH/last_used
+      command rm "$JUMPHISTPATH/last_used"
+      command ln -s (readlink $MARKPATH/$argv[1]) "$JUMPHISTPATH/last_used"
     else
       echo "No such mark: $argv[1]"
     end

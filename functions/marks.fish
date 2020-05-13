@@ -8,7 +8,7 @@ function marks
     else
       set -l output ""
       for mark in $mark_list
-        set -l real_path (readlink $mark)
+        set -l real_path (realpath $mark)
         set -l mark_name (basename $mark)
         set output "$output$mark_name -> $real_path"\n
       end

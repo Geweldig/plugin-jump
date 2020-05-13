@@ -16,7 +16,8 @@ A port of [Jeroen Janssens' "jump" utility] [1] to the fish shell (and [Oh My Fi
 If you have a custom mark folder, you can add the following to your `~/.config/fish/before.init.fish`.
 
 ```
-set -gx MARKPATH YOUR_CUSTOM_FOLDER_PATH_HERE
+set -gx MARKPATH     YOUR_CUSTOM_FOLDER_PATH_HERE
+set -gx JUMPHISTPATH YOUR_CUSTOM_FOLDER_PATH_HERE
 ```
 
 # License

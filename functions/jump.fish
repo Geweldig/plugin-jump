@@ -1,9 +1,14 @@
 function jump
   if test (count $argv) -ne 1
-    echo "Usage: jump <MARK_NAME>"
+      if test -d $JUMPHISTPATH/last_used -a -L $JUMPHISTPATH/last_used
+          cd (readlink $JUMPHISTPATH/last_used)
+      else
+          echo "No last used mark set"
+      end
   else
     if test -d $MARKPATH/$argv[1] -a -L $MARKPATH/$argv[1]
       cd (readlink $MARKPATH/$argv[1])
+      ln -sf (readlink $MARKPATH/$argv[1]) $JUMPHISTPATH/last_used
     else
       echo "No such mark: $argv[1]"
     end
